@@ -1,0 +1,5 @@
+-- CreateTable
+CREATE TABLE "Config" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT DEFAULT 1,
+    "pricePerHour" REAL NOT NULL DEFAULT 15.0
+);

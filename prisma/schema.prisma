@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Booking {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String
+  teamName  String?
+  slots     String
+  totalPrice Int
+  paidAmount Int @default(0)
+  paymentMethod String @default("CASH")
+  status    String   @default("CONFIRMED") // CONFIRMED, CANCELLED
+  createdAt DateTime @default(now())
+}
+
+model Config {
+  id           Int    @id @default(1)
+  pricePerHour Float  @default(15.0)
+}
